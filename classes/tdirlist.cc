@@ -202,7 +202,7 @@ void TDirListBox::showDrives( TDirCollection *dirs )
 {
     Boolean isFirst = True;
     char oldc[5];
-    strcpy( oldc, "0:"DIRSEPARATOR_ );
+    strcpy( oldc, "0:" DIRSEPARATOR_ );
     // SET: We actually assume firstDir, middleDir and lastDir have the same
     // len. Otherwise the list becomes unreadable.
     // Doing this I replaced strcpy by memcpy and avoided continues strlen

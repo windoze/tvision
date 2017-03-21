@@ -72,9 +72,9 @@ if("${CMAKE_SYSTEM_PROCESSOR}" EQUAL "i386")
 	endif("${CMAKE_SIZEOF_VOID_P}" EQUAL "4")
 endif("${CMAKE_SYSTEM_PROCESSOR}" EQUAL "i386")
 # TVComp_
-if("${CMAKE_C_COMPILER_ID}" EQUAL "GNU")
+if(CMAKE_COMPILER_IS_GNUCC)
 	set(TVComp_GCC 1)
-endif("${CMAKE_C_COMPILER_ID}" EQUAL "GNU")
+endif(CMAKE_COMPILER_IS_GNUCC)
 if("${CMAKE_C_COMPILER_ID}" MATCHES "Clang")
 	# Clang looks like GCC
 	set(TVComp_GCC 1)
@@ -92,6 +92,9 @@ endif(MINGW)
 if(CYGWIN)
 	set(TVCompf_Cygwin 1)
 endif(CYGWIN)
+if(NOT ENABLE_WINGR_DRIVER)
+	set(TV_Disable_WinGr_Driver 1)
+endif(NOT ENABLE_WINGR_DRIVER)
 configure_file ("${CMAKE_SOURCE_DIR}/include/tv/configtv.h.in"
                 "${CMAKE_BINARY_DIR}/include/tv/configtv.h" )
 

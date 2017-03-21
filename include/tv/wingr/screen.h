@@ -1,7 +1,7 @@
 /*
  * Windows GUI screen routines header.
  *
- *  Copyright (c) 2002 by José Angel Sánchez Caso (JASC)  
+ *  Copyright (c) 2002 by JosÎ˜ Angel SÃŸnchez Caso (JASC)  
  *  Copyright (c) 2002 by Salvador E. Tropea (SET)
  * 
  *  From SET code fragment win 32 driver.

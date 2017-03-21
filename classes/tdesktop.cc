@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified cursor behavior while desktop locked by Salvador E. Tropea (SET)
 
  *
@@ -144,7 +144,7 @@ unsigned iSqr( unsigned i )
 {
     unsigned res1 = 2;
     unsigned res2 = i/res1;
-    while( abs( res1 - res2 ) > 1 )
+    while( abs( long(res1 - res2) ) > 1 )
         {
         res1 = (res1 + res2)/2;
         res2 = i/res1;

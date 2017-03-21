@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 project(rhtvision)
 
+option(ENABLE_WINGR_DRIVER "Enable WinGr Driver" OFF)
+
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}")
 include(TVConfig)
 
@@ -519,6 +521,8 @@ set(RHTV_WINNT_SRCS
 	compat/ntdirent.c	
 	compat/unc.c
 	compat/unc_nt.c
+	include/tv/win32/win32clip.h
+	classes/win32/win32clip.cc
 	include/tv/winnt/key.h
 	include/tv/winnt/mouse.h
 	include/tv/winnt/screen.h

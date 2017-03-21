@@ -40,7 +40,7 @@
 #cmakedefine HAVE_64BITS_POINTERS 1
 
 #cmakedefine TVOS_UNIX 1
-#cmakedefine TVOS_WIN32 1
+#cmakedefine TVOS_Win32 1
 #cmakedefine TVOSf_Linux 1
 #cmakedefine TVOSf_FreeBSD 1
 #cmakedefine TVOSf_NetBSD 1
@@ -50,9 +50,10 @@
 #cmakedefine TVOSf_QNX4 1
 #cmakedefine TVComp_GCC 1
 #cmakedefine TVComp_BCPP 1
-#cmakedefine TVComp_MSVC 1
+#cmakedefine TVComp_MSC 1
 #cmakedefine TVCompf_MinGW 1
 #cmakedefine TVCompf_Cygwin 1
+#cmakedefine TV_Disable_WinGr_Driver 1
 
 #define TVCONFIG_RHIDE_STDINC "/usr/include /usr/local/include /usr/include/g++ /usr/local/include/g++ /usr/lib/gcc-lib /usr/local/lib/gcc-lib"
 #define TVCONFIG_TVSRC "../../include /Users/chenxu/repos/tvision/include /usr/include/rhtvision"

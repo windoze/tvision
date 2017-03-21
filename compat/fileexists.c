@@ -1,5 +1,5 @@
 /*
- Copyright (C) 1996-1998 Robert H”hne
+ Copyright (C) 1996-1998 Robert HÃ¶hne
  Copyright (C) 2000-2001 Salvador E. Tropea
  Covered by the GPL license.
 */
