@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Salvador E. Tropea (release CPU and other stuff)
 Modified by Salvador E. Tropea to compile for 64 bits architectures.
 Modified by Salvador E. Tropea to disable Alt+N stuff.
@@ -230,7 +230,7 @@ void TProgram::handleEvent( TEvent& event )
                    if( message( deskTop,
                             evBroadcast,
                             cmSelectWindowNum,
-                            (void *)(uipointer)(c - '0')
+                            (void *)(uintptr_t)(c - '0')
                            ) != 0 )
                    clearEvent( event );
                }

@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Added palette color and draw code for disabled clusters by Salvador E. Tropea
 Added TSItem::append by Salvador E. Tropea
 
@@ -100,9 +100,9 @@ const char *TCluster::getItemText( ccIndex item )
     return TVIntl::getText( key, cache );
 }
 
-uint32  TCluster::dataSize()
+uint32_t  TCluster::dataSize()
 {
- // I have changed value from ushort to uint32, but to be compatible
+ // I have changed value from ushort to uint32_t, but to be compatible
  // I set dataSize to 2.
  // SET: I added TRadioButtons32 and TCheckBox32
  return sizeof(ushort);

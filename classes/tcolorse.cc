@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -65,7 +65,7 @@ void TColorSelector::colorChanged()
         msg = cmColorForegroundChanged;
     else
         msg = cmColorBackgroundChanged;
-    message( owner, evBroadcast, msg, (void *)(uipointer)color );
+    message( owner, evBroadcast, msg, (void *)(uintptr_t)color );
 }
  
 void TColorSelector::handleEvent( TEvent& event )

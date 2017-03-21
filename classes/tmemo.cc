@@ -28,12 +28,12 @@ TMemo::TMemo( const TRect& bounds,
                   TScrollBar *aHScrollBar,
                   TScrollBar *aVScrollBar,
                   TIndicator *aIndicator,
-                  uint32 aBufSize ) :
+                  uint32_t aBufSize ) :
     TEditor( bounds, aHScrollBar, aVScrollBar, aIndicator, aBufSize )
 {
 }
 
-uint32 TMemo::dataSize()
+uint32_t TMemo::dataSize()
 {
     return bufSize + sizeof( ushort );
 }
@@ -81,7 +81,7 @@ void TMemo::write( opstream& os )
 void *TMemo::read( ipstream& is )
 {
     TEditor::read( is );
-    uint32 length;
+    uint32_t length;
     is >> length;
     if( isValid )
         {

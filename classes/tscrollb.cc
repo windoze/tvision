@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -105,13 +105,13 @@ TPalette& TScrollBar::getPalette() const
     return palette;
 }
 
-int32 TScrollBar::getPos()
+int32_t TScrollBar::getPos()
 {
-    int32 r = maxVal - minVal;
+    int32_t r = maxVal - minVal;
     if( r == 0 )
 	return 1;
     else
-	return  int32(( ((long(value - minVal) * (getSize() - 3)) + (r >> 1)) / r) + 1);
+	return  int32_t(( ((long(value - minVal) * (getSize() - 3)) + (r >> 1)) / r) + 1);
 }
 
 int TScrollBar::getSize()
@@ -127,7 +127,7 @@ int TScrollBar::getSize()
 }
 
 static TPoint mouse;
-static int32 p, s;
+static int32_t p, s;
 static TRect extent;
 
 int TScrollBar::getPartCode()
@@ -291,14 +291,14 @@ int TScrollBar::scrollStep( int part )
         return step;
 }
 
-void TScrollBar::setParams( int32 aValue,
-                            int32 aMin,
-                            int32 aMax,
+void TScrollBar::setParams( int32_t aValue,
+                            int32_t aMin,
+                            int32_t aMax,
                             int aPgStep,
                             int aArStep
                           )
 {
-    int32  sValue;
+    int32_t  sValue;
 
     aMax = max( aMax, aMin );
     aValue = max( aMin, aValue );
@@ -317,7 +317,7 @@ void TScrollBar::setParams( int32 aValue,
     arStep = aArStep;
 }
 
-void TScrollBar::setRange( int32 aMin, int32 aMax )
+void TScrollBar::setRange( int32_t aMin, int32_t aMax )
 {
     setParams( value, aMin, aMax, pgStep, arStep );
 }
@@ -327,7 +327,7 @@ void TScrollBar::setStep( int aPgStep, int aArStep )
     setParams( value, minVal, maxVal, aPgStep, aArStep );
 }
 
-void TScrollBar::setValue( int32 aValue )
+void TScrollBar::setValue( int32_t aValue )
 {
     setParams( aValue, minVal, maxVal, pgStep, arStep );
 }

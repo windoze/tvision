@@ -9,7 +9,7 @@
   This is the base class for low level screen output.
   Most members are pointers to functions defined by each platform dependent
 driver. Default members are provided.
-  This is a complete new file created from concepts that José Angel Sanchez
+  This is a complete new file created from concepts that Josï¿½ Angel Sanchez
 Caso provide me and coded from scratch. The names of some members are the
 same used in original Turbo Vision for compatibility purposes.
   
@@ -60,7 +60,7 @@ TScreenColor  TDisplay::OriginalPalette[16];
 TScreenColor  TDisplay::ActualPalette[16];
 char          TDisplay::paletteModified           =0;
 char          TDisplay::avoidMoire                =0;
-uint32        TDisplay::opts1                     =0;
+uint32_t        TDisplay::opts1                     =0;
 TVCodePage   *TDisplay::codePage                  =NULL;
 Boolean       TDisplay::busyState                 =False;
 TVScreenDriverDetectCallBack TDisplay::dCB        =NULL;

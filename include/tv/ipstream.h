@@ -4,7 +4,7 @@
  *      Copyright (c) 1994 by Borland International
  *      All Rights Reserved.
  *
- * Modified by Robert H”hne to be used for RHIDE.
+ * Modified by Robert Hï¿½hne to be used for RHIDE.
  *
  * Modified by Jose Angel Sanchez Caso (JASC) to have machine endian and
  *  integer size compatibility.
@@ -49,10 +49,10 @@ public:
     uint   readInt();
     ulong  readLong();
     /* The following are platform independent (stores in little endian) */
-    uint8  read8() { return readByte(); };
-    uint16 read16();
-    uint32 read32();
-    uint64 read64();
+    uint8_t  read8() { return readByte(); };
+    uint16_t read16();
+    uint32_t read32();
+    uint64_t read64();
 
     #ifndef TVComp_BCPP
     ipstream& operator >> (signed char    &ch ) {ch=readByte();  return (*this);}

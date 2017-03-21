@@ -2656,7 +2656,7 @@ Currently that's an slow search because isn't used very much.
   
 ***************************************************************************/
 
-uint16 TVCodePage::UnicodeForInternalCode(uint16 value)
+uint16_t TVCodePage::UnicodeForInternalCode(uint16_t value)
 {
  int i;
  for (i=0; i<providedUnicodes; i++)

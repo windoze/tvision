@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -25,26 +25,26 @@ public:
     TTerminal( const TRect& bounds,
 	       TScrollBar *aHScrollBar,
 	       TScrollBar *aVScrollBar,
-	       uint32 aBufSize
+	       uint32_t aBufSize
 	     );
     virtual ~TTerminal();
 
     virtual int do_sputn( const char *s, int count );
 
-    void bufInc(uint32& val) { if (++val>=bufSize) val=0; }
-    Boolean canInsert( uint32 amount );
+    void bufInc(uint32_t& val) { if (++val>=bufSize) val=0; }
+    Boolean canInsert( uint32_t amount );
     short calcWidth();
     virtual void draw();
-    uint32 nextLine( uint32 pos );
-    uint32 prevLines( uint32 pos, uint32 lines );
+    uint32_t nextLine( uint32_t pos );
+    uint32_t prevLines( uint32_t pos, uint32_t lines );
     Boolean queEmpty();
 
 protected:
 
-    uint32 bufSize;
+    uint32_t bufSize;
     char *buffer;
-    uint32 queFront, queBack;
-    void bufDec(uint32& val) { if (val==0) val=bufSize - 1; else val--; }
+    uint32_t queFront, queBack;
+    void bufDec(uint32_t& val) { if (val==0) val=bufSize - 1; else val--; }
 };
 
 #endif  // Uses_TTerminal

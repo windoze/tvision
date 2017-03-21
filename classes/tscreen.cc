@@ -9,7 +9,7 @@
   This is the base class for medium level screen output.
   Most members are pointers to functions defined by each platform dependent
 driver. Default members are provided.
-  This is a complete new file created from concepts that José Angel Sanchez
+  This is a complete new file created from concepts that Josï¿½ Angel Sanchez
 Caso provide me and coded from scratch. The names of some members are the
 same used in original Turbo Vision for compatibility purposes.
 
@@ -46,7 +46,7 @@ char     TScreen::suspended=1;
 char     TScreen::initialized=0;
 char     TScreen::initCalled=0;
 char     TScreen::useSecondaryFont=0;
-uint32   TScreen::flags0=0;
+uint32_t   TScreen::flags0=0;
 TScreen *TScreen::driver=NULL;
 const char
         *TScreen::currentDriverShortName=NULL;

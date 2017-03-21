@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Vadim Beloborodov to be used on WIN32 console
 Modified cursor behavior while desktop locked by Salvador E. Tropea (SET)
          Rewrote call50() to support on the fly remapping and avoid using
@@ -146,7 +146,7 @@ Boolean TView::commandEnabled( ushort command )
                    curCommandSet.has(command));
 }
 
-uint32 TView::dataSize()
+uint32_t TView::dataSize()
 {
     return 0;
 }

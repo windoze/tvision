@@ -35,7 +35,7 @@
 
 UsingNamespaceStd
 
-inline uint32 min( uint32 u1, uint32 u2 )
+inline uint32_t min( uint32_t u1, uint32_t u2 )
 {
     return u1 < u2 ? u1 : u2;
 }
@@ -137,7 +137,7 @@ Boolean TFileEditor::loadFile()
         }
         #endif
         long fSize=filelength(fileno(f));;
-        if( setBufSize((uint32)(fSize)) == False )
+        if( setBufSize((uint32_t)(fSize)) == False )
             {
             editorDialog( edOutOfMemory );
             if (!crfound) remove(tmp);
@@ -147,13 +147,13 @@ Boolean TFileEditor::loadFile()
             {
             if ( fSize > INT_MAX )
             {
-               fread( &buffer[bufSize - (uint32)(fSize)], INT_MAX, 1, f );
-               fread( &buffer[bufSize - (uint32)(fSize) + INT_MAX],
-                                (uint32)(fSize - INT_MAX), 1, f );
+               fread( &buffer[bufSize - (uint32_t)(fSize)], INT_MAX, 1, f );
+               fread( &buffer[bufSize - (uint32_t)(fSize) + INT_MAX],
+                                (uint32_t)(fSize - INT_MAX), 1, f );
 
             }
             else
-               fread( &buffer[bufSize - (uint32)(fSize)], (uint32)(fSize), 1, f );
+               fread( &buffer[bufSize - (uint32_t)(fSize)], (uint32_t)(fSize), 1, f );
             int error=ferror(f);
             if( fclose(f) || error )
                 {
@@ -163,7 +163,7 @@ Boolean TFileEditor::loadFile()
                 }
             else
                 {
-                setBufLen((uint32)(fSize));
+                setBufLen((uint32_t)(fSize));
                 if (!crfound) remove(tmp);
                 return True;
                 }
@@ -264,7 +264,7 @@ Boolean TFileEditor::saveFile()
     return True;
 }
 
-Boolean TFileEditor::setBufSize( uint32 newSize )
+Boolean TFileEditor::setBufSize( uint32_t newSize )
 {
    newSize = (newSize + 0x0FFF) & 0xFFFFF000L;
     if( newSize != bufSize )
@@ -275,7 +275,7 @@ Boolean TFileEditor::setBufSize( uint32 newSize )
             delete temp;
             return False;
             }
-        uint32 n = bufLen - curPtr + delCount;
+        uint32_t n = bufLen - curPtr + delCount;
         memcpy( buffer, temp, min( newSize, bufSize ) );
         memmove( &buffer[newSize - n], &temp[bufSize - n], n );
         delete temp;
@@ -344,7 +344,7 @@ void *TFileEditor::read( ipstream& is )
     if( isValid )
         {
         isValid = loadFile();
-        uint32 sStart, sEnd, curs;
+        uint32_t sStart, sEnd, curs;
         is >> sStart >> sEnd >> curs;
         if( isValid && sEnd <= bufLen )
             {

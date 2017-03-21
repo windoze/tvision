@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Salvador E. Tropea to support mouse wheels and other things.
 
  *
@@ -131,7 +131,7 @@ void TScroller::scrollDraw()
         }
 }
 
-void TScroller::scrollTo( int32 x, int32 y )
+void TScroller::scrollTo( int32_t x, int32_t y )
 {
     drawLock++;
     if( hScrollBar != 0 )
@@ -142,7 +142,7 @@ void TScroller::scrollTo( int32 x, int32 y )
     checkDraw();
 }
 
-void TScroller::setLimit( int32 x, int32 y )
+void TScroller::setLimit( int32_t x, int32_t y )
 {
     limit.x = x;
     limit.y = y;

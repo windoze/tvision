@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
  *
- * Modified by Robert H”hne to be used for RHIDE.
+ * Modified by Robert Hï¿½hne to be used for RHIDE.
  * Modified by Vadim Beloborodov to be used on WIN32 console
  *
  * SET: Moved the standard headers here because according to DJ
@@ -147,9 +147,9 @@ void opstream::write##name(type val)\
  Swap##name((char *)&val);\
  bp->sputn((char *)&val,sizeof(type));\
 }
-DefineWrite(16,uint16);
-DefineWrite(32,uint32);
-DefineWrite(64,uint64);
+DefineWrite(16,uint16_t);
+DefineWrite(32,uint32_t);
+DefineWrite(64,uint64_t);
 
 void opstream::writeString( const char *str )
 {

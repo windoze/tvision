@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Salvador E. Tropea to compile for 64 bits architectures.
 
  *
@@ -29,7 +29,7 @@ const P_id_type P_id_notFound = UINT_MAX;
 
 typedef TStreamable *(*BUILDER)();
 
-#define __DELTA( d ) ((uipointer)((TStreamable *)(d *)1)-1)
+#define __DELTA( d ) ((uintptr_t)((TStreamable *)(d *)1)-1)
 
 class CLY_EXPORT TStreamableClass
 {

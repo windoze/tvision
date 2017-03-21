@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Vadim Beloborodov to be used on WIN32 console
 Modified by Salvador E. Tropea: added i18n support. Horizontal scroll bar.
 
@@ -83,7 +83,7 @@ int changeDir( const char *path )
     return chdir( path );
 }
 
-uint32 TChDirDialog::dataSize()
+uint32_t TChDirDialog::dataSize()
 {
     return 0;
 }

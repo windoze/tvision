@@ -651,7 +651,7 @@ static const TStructMap * TMemoMap = &(
      *new TStructMap("TabOrder", sizeof(int), etIntegerEditor) +
      *new TStructMap("HScroll", MAX_LABEL_LENGTH, etScrollBarEditor, 0) +
      *new TStructMap("VScroll", MAX_LABEL_LENGTH, etScrollBarEditor, 0) +
-     *new TStructMap("BufSize", sizeof(uint32), etIntegerEditor) );
+     *new TStructMap("BufSize", sizeof(uint32_t), etIntegerEditor) );
 //   *new TStructMap("Text", sizeof(char *), etCharPtrEditor, 0) );
 
 static const TStructMap * TStaticMap = &(

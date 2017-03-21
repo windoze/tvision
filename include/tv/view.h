@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -67,7 +67,7 @@ public:
     void drawUnderRect( TRect& r, TView *lastView );
     void drawUnderView( Boolean doShadow, TView *lastView );
 
-    virtual uint32 dataSize();
+    virtual uint32_t dataSize();
     virtual void getData( void *rec );
     virtual void setData( void *rec );
 

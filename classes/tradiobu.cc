@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Added TRadioButtons32 and code page stuff by Salvador Eduardo Tropea.
 
  *
@@ -23,7 +23,7 @@ void TRadioButtons::draw()
 
 Boolean TRadioButtons::mark( int item )
 {
-    return Boolean( (uint32)item == value );
+    return Boolean( (uint32_t)item == value );
 }
 
 void TRadioButtons::press( int item )
@@ -71,7 +71,7 @@ void TRadioButtons::evaluateMasks()
         }
 }
 
-uint32 TRadioButtons32::dataSize()
+uint32_t TRadioButtons32::dataSize()
 {
     return 4;
 }

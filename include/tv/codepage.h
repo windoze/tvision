@@ -14,7 +14,7 @@ class TVCodePageCol;
 class TStringCollection;
 struct stIntCodePairs
 {
- uint16 unicode,code;
+ uint16_t unicode,code;
 };
 
 // This is the internal structure used to describe a code page
@@ -70,8 +70,8 @@ public:
   { return AlphaTable[(uchar)val] & lowerChar; }
  static int     isUpper(char val)
   { return AlphaTable[(uchar)val] & upperChar; }
- static int     InternalCodeForUnicode(uint16 unicode);
- static uint16  UnicodeForInternalCode(uint16 code);
+ static int     InternalCodeForUnicode(uint16_t unicode);
+ static uint16_t  UnicodeForInternalCode(uint16_t code);
  static void    GetUnicodesForCP(int id, stIntCodePairs *unicodes);
  static TVCodePageCallBack SetCallBack(TVCodePageCallBack map);
 

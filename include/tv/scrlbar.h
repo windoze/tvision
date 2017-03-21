@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -40,21 +40,21 @@ public:
     virtual void handleEvent( TEvent& event );
     virtual void scrollDraw();
     virtual int scrollStep( int part );
-    void setParams( int32 aValue, int32 aMin, int32 aMax,
+    void setParams( int32_t aValue, int32_t aMin, int32_t aMax,
                     int aPgStep, int aArStep );
-    void setRange( int32 aMin, int32 aMax );
+    void setRange( int32_t aMin, int32_t aMax );
     void setStep( int aPgStep, int aArStep );
-    void setValue( int32 aValue );
+    void setValue( int32_t aValue );
 
     void drawPos( int pos );
-    int32 getPos();
+    int32_t getPos();
     int getSize();
 
-    int32 value;
+    int32_t value;
 
     TScrollChars chars;
-    int32 minVal;
-    int32 maxVal;
+    int32_t minVal;
+    int32_t maxVal;
     int pgStep;
     int arStep;
 

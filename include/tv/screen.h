@@ -195,7 +195,7 @@ protected:
   DontMoveHiddenCursor=2 // This option disables the help for Braille
                          // Terminals in favor of speed.
  };
- static uint32 opts1;
+ static uint32_t opts1;
 
  // Helper to access TVCodePage and set the default values
  static void SetDefaultCodePages(int idScr, int idApp, int idInp);
@@ -281,7 +281,7 @@ public:
  // This is optional and in some particular platform could be a NULL pointer.
  // SET: Changed to avoid problems, in fact some casts to int failed in
  // Alpha/Linux. We found it with Dim Zegebart.
- static uint16 *screenBuffer;
+ static uint16_t *screenBuffer;
 
  static void   (*setCrtData)();
  static ushort (*fixCrtMode)(ushort mode);
@@ -405,7 +405,7 @@ public:
 
 protected:
  // SET: Capabilities flags
- static uint32 flags0;
+ static uint32_t flags0;
  static const char *currentDriverShortName;
  // Indicates if we must use the secondary font for the higher foreground
  // colors.

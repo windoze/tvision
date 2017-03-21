@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Vadim Beloborodov to be used on WIN32 console
 Modified by Salvador E. Tropea to exclude .. in parent dir and
 exlude some particular files by configuration.
@@ -92,7 +92,7 @@ void TFileList::setData( void * )
 {
 }
 
-uint32 TFileList::dataSize()
+uint32_t TFileList::dataSize()
 {
   return 0;
 }

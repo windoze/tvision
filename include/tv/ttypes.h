@@ -15,7 +15,7 @@ class opstream;
 class TStreamable;
 class TStreamableTypes;
 
-typedef int32 ccIndex;
+typedef int32_t ccIndex;
 typedef Boolean (*ccTestFunc)( void *, void * );
 typedef void (*ccAppFunc)( void *, void * );
 

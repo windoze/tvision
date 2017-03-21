@@ -236,7 +236,7 @@ overruns. Under some situations it could be overflowed.
 
 Revision 2.703  2007/05/09 12:55:57  set
 * Modified: The default time to sleep when no events are available. It was
-10 µs, good for most Linux kernels, but 2.6.21 reduces the granularity and
+10 ï¿½s, good for most Linux kernels, but 2.6.21 reduces the granularity and
 really sleeps for a small ammount of time. Now we sleep for 10 ms. From a
 report and test by Ivan Baldo.
 
@@ -379,7 +379,7 @@ TInputLineBase::setState. I don't know why I removed it when I added BTV
 
 Revision 2.674  2005/12/05 20:24:10  set
 * Added: Now the list box in the file dialog uses left and right arrows to
-navigate directories. Suggested by Sergio Núñez snunez/esquemas/com.
+navigate directories. Suggested by Sergio Nï¿½ï¿½ez snunez/esquemas/com.
 
 Revision 2.673  2005/11/10 19:46:26  set
 * Fixed: TParamText::~TParamText new/delete[] missmatch. SF patch #1353152
@@ -514,7 +514,7 @@ Revision 2.646  2005/08/02 14:49:24  set
 Revision 2.645  2005/08/02 14:07:29  set
 * Modified: [MSVC] Disabled warning 4291 in histlist.cc. The compiler is
 wrong.
-* Modified: [MSVC] Added support for 64 bits pointers in uipointer and
+* Modified: [MSVC] Added support for 64 bits pointers in uintptr_t and
 clarified the warning 4311 issue (also disabled). Both from info sent by
 Eddie.
 
@@ -536,8 +536,8 @@ Revision 2.641  2005/08/01 16:32:22  set
 * Added: More export directives. Patch from Lothar.
 
 Revision 2.640  2005/08/01 16:11:48  set
-* Modified: All casts from void * to an integer to use uipointer. The
-problem with MSVC remains, but once we solve what to use as uipointer all
+* Modified: All casts from void * to an integer to use uintptr_t. The
+problem with MSVC remains, but once we solve what to use as uintptr_t all
 the warnings will go away at once. Reported by Eddie.
 * Fixed: [MSVC] Some forward declarations for TEvent used class when
 that's an struct. Reported by Eddie.
@@ -713,7 +713,7 @@ Revision 2.603  2004/12/07 14:48:58  set
 
 Revision 2.602  2004/12/06 18:16:40  set
 * Fixed(?): XFree86 reports Ctrl+2 without any symbol (only ASCII).
-Reported by Sergio Núñez (snunez/esquemas/com).
+Reported by Sergio Nï¿½ï¿½ez (snunez/esquemas/com).
 * Added: Detection of 64 bits pointers and macros to cast pointers into
 64 bits values. GCC 3.4.x doesn't allow to cast a pointer into an unsigned
 long long if the pointer is 32 bits wide.
@@ -2364,15 +2364,15 @@ Revision 2.294  2002/09/11 12:54:54  set
 * Added: isLower, isUpper and isAlNum to TVCodePage.
 
 Revision 2.293  2002/09/10 20:36:52  set
-* Fixed: The colors dialog used TEvent´s infoByte field, but it was loaded
+* Fixed: The colors dialog used TEventï¿½s infoByte field, but it was loaded
 from an unsigned value. This is OK for little endian, but in big endian
-machines doesn´t work. I removed all the infoByte code and replaced it by
+machines doesnï¿½t work. I removed all the infoByte code and replaced it by
 infoLong usage loading with long values.
 
 Revision 2.292  2002/09/10 20:14:21  set
 * Added: Support for endian differences in font files. Now the fonts can
 be generated using little or big endian machines, the loading routines
-detects it and does the needed conversions. Tested on Solaris (in fact I´m
+detects it and does the needed conversions. Tested on Solaris (in fact Iï¿½m
 using the fonts with SETEdit to write it, the editor is running on an Ultra
 60 machine and the output is in mine Linux box :-)
 

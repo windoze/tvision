@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Added TRadioButtons32 and code page stuff by Salvador Eduardo Tropea.
 
  *
@@ -45,7 +45,7 @@ public:
 
     // SET: Used to enable/disable other TViews according to current state.
     // Upto 32 can be controled.
-    void setEnableMask( uint32 *masks, TView **views, int cViews )
+    void setEnableMask( uint32_t *masks, TView **views, int cViews )
     {
      enableMasks = masks;
      enableViews = views;
@@ -66,7 +66,7 @@ private:
 protected:
 
     TRadioButtons( StreamableInit );
-    uint32 *enableMasks;
+    uint32_t *enableMasks;
     TView  **enableViews;
     int enableCViews;
     void evaluateMasks();
@@ -83,7 +83,7 @@ class TRadioButtons32 : public TRadioButtons
 public:
  TRadioButtons32(const TRect& bounds,TSItem *aStrings) :
    TRadioButtons(bounds,aStrings) {};
- virtual uint32 dataSize();
+ virtual uint32_t dataSize();
 private:
 #if !defined( NO_STREAM )
  virtual const char *streamableName() const { return name; }

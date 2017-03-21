@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -39,7 +39,7 @@ public:
     TCluster( const TRect& bounds, TSItem *aStrings );
     ~TCluster();
 
-    virtual uint32 dataSize();
+    virtual uint32_t dataSize();
     void drawBox( const char *icon, char marker );
     virtual void getData( void *rec );
     ushort getHelpCtx();
@@ -59,7 +59,7 @@ public:
 protected:
     static unsigned extraOptions;
 
-    uint32 value;
+    uint32_t value;
     int sel;
     // SET: i18n cache
     TStringCollectionCIntl *intlStrings;

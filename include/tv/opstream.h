@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified to compile with gcc v3.x by Salvador E. Tropea, with the help of
 Andris Pavenis and Christoph Bauer.
 
@@ -47,10 +47,10 @@ public:
     void writeInt(uint val);
     void writeLong(ulong val);
     /* The following are platform independent (stores in little endian) */
-    void write8(uint8 val) { writeByte(val); };
-    void write16(uint16 val);
-    void write32(uint32 val);
-    void write64(uint64 val);
+    void write8(uint8_t val) { writeByte(val); };
+    void write16(uint16_t val);
+    void write32(uint32_t val);
+    void write64(uint64_t val);
 
     opstream& operator << ( char           val ) { writeByte(val); return *this; };
     #ifndef TVComp_BCPP

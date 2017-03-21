@@ -234,7 +234,7 @@ int TVFontCollection::CheckSignature(FILE *f)
 
 char *TVFontCollection::ReadName(FILE *f)
 {
- uint16 strLen;
+ uint16_t strLen;
  fread(&strLen,2,1,f);
  Swap(&strLen);
  char *aux=new char[strLen];
@@ -253,7 +253,7 @@ void TVFontCollection::Swap(int *value)
  SwapMacro(1,2);
 }
 
-void TVFontCollection::Swap(uint16 *value)
+void TVFontCollection::Swap(uint16_t *value)
 {
  if (!invertEndian) return;
  char *v=(char *)value, t;

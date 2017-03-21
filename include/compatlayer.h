@@ -72,36 +72,39 @@ and regex.
  #define CLY_CFunc extern
 #endif
 
-#if !defined(CLY_DoNotDefineSizedTypes) && !defined(CLY_SizedTypesDefined)
-#define CLY_SizedTypesDefined 1
-/* The following types should be platform independent */
-typedef signed char int8;
-typedef short       int16;
-typedef int         int32;
-typedef unsigned char  uint8;
-typedef unsigned short uint16;
-typedef unsigned int   uint32;
-#if defined(TVComp_GCC)
-typedef unsigned long long uint64;
-typedef          long long int64;
-#elif defined(TVComp_BCPP) || defined(TVComp_MSC) || defined (TVComp_Watcom)
-typedef unsigned __int64 uint64;
-typedef          __int64 int64;
-#else
- #error Can not define uint64 type: unknown compiler.
-#endif
-#endif /* CLY_DoNotDefineSizedTypes */
+//#if !defined(CLY_DoNotDefineSizedTypes) && !defined(CLY_SizedTypesDefined)
+//#define CLY_SizedTypesDefined 1
+///* The following types should be platform independent */
+//typedef signed char int8_t;
+//typedef short       int16_t;
+//typedef int         int32_t;
+//typedef unsigned char  uint8_t;
+//typedef unsigned short uint16_t;
+//typedef unsigned int   uint32_t;
+//#if defined(TVComp_GCC)
+//typedef unsigned long long uint64;
+//typedef          long long int64;
+//#elif defined(TVComp_BCPP) || defined(TVComp_MSC) || defined (TVComp_Watcom)
+//typedef unsigned __int64 uint64;
+//typedef          __int64 int64;
+//#else
+// #error Can not define uint64 type: unknown compiler.
+//#endif
+//#endif /* CLY_DoNotDefineSizedTypes */
 
-#if defined(HAVE_64BITS_POINTERS) || (defined(TVComp_MSC) && defined(_WIN64))
-typedef uint64 uipointer;
-#else
-typedef uint32 uipointer;
-#endif
+#define CLY_SizedTypesDefined 1
+#include <stdint.h>
+
+//#if defined(HAVE_64BITS_POINTERS) || (defined(TVComp_MSC) && defined(_WIN64))
+//typedef uint64_t uintptr_t;
+//#else
+//typedef uint32_t uintptr_t;
+//#endif
 /* Macros to cast a pointer into a 64 bits unsigned and viceversa */
 #undef  CLY_PointerToUI64
 #undef  CLY_UI64ToPointer
-#define CLY_UI64ToPointer(a) ((void *)(uipointer)(a))
-#define CLY_PointerToUI64(a) ((uint64)(uipointer)(a))
+#define CLY_UI64ToPointer(a) ((void *)(uintptr_t)(a))
+#define CLY_PointerToUI64(a) ((uint64_t)(uintptr_t)(a))
 
 #if defined(CLY_DefineUTypes) || defined(__cplusplus)
 /* The following are just aliases and the size is platform dependant */
@@ -1519,10 +1522,10 @@ when compiler version 7.0 was released.
  #define CLY_Packed
  /*
    I'm disabling warnings 4311/2 that generates:
-   'type cast' : pointer truncation from 'void *' to 'uipointer'
-   'type cast' : conversion from 'uipointer' to 'void *' of greater size
+   'type cast' : pointer truncation from 'void *' to 'uintptr_t'
+   'type cast' : conversion from 'uintptr_t' to 'void *' of greater size
    This is just the result of using /Wp64 and is just a potential issue.
-   We already define uipointer as a 64 bits value for Win64.
+   We already define uintptr_t as a 64 bits value for Win64.
  */
  #if _MSC_VER >= 1310
    #pragma warning( disable : 4311 )

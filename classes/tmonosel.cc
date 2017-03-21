@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Salvador E. Tropea to compile for 64 bits architectures.
 
  *
@@ -60,9 +60,9 @@ Boolean TMonoSelector::mark( int item )
 void TMonoSelector::newColor()
 {
     message( owner, evBroadcast, cmColorForegroundChanged,
-        (void *)(uipointer)(value & 0x0F) );
+        (void *)(uintptr_t)(value & 0x0F) );
     message( owner, evBroadcast, cmColorBackgroundChanged,
-        (void *)(uipointer)((value >> 4) & 0x0F));
+        (void *)(uintptr_t)((value >> 4) & 0x0F));
 }
 
 void TMonoSelector::press( int item )

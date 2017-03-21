@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Added TCheckBoxes32 and code page stuff by Salvador Eduardo Tropea.
 
  *
@@ -31,7 +31,7 @@ void TCheckBoxes::press(int item)
     TCluster::press(item);
 }
 
-uint32 TCheckBoxes32::dataSize()
+uint32_t TCheckBoxes32::dataSize()
 {
     return 4;
 }

@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Salvador E. Tropea: added i18n support, enlarged the dialog,
 horizontal scroll bar in items, etc.
 
@@ -123,7 +123,7 @@ void TColorDialog::handleEvent( TEvent& event )
       }
 }
 
-uint32 TColorDialog::dataSize()
+uint32_t TColorDialog::dataSize()
 {
     return *pal->data + 1;
 }

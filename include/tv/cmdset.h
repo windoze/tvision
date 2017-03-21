@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -52,7 +52,7 @@ public:
     friend int operator != ( const TCommandSet& tc1, const TCommandSet& tc2 );
 
 private:
-    uint32 *cmds;
+    uint32_t *cmds;
 
 };
 

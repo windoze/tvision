@@ -100,7 +100,7 @@ protected:
  static unsigned ReadFontInfo(FILE *f, int version, TVBitmapFont *p);
  static void     Swap(int *value);
  static void     Swap(unsigned *value) { Swap((int *)value); };
- static void     Swap(uint16 *value);
+ static void     Swap(uint16_t *value);
  // !=0 if the file was created with the reverse endian style.
  // Only used during load.
  static int      invertEndian;

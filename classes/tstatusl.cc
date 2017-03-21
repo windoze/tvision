@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -158,7 +158,7 @@ void TStatusLine::drawSelect( TStatusItem *selected )
             {
             b.moveStr( i, hintSeparator, cNormal );
             i += 2;
-            if( (int32)strlen(hintBuf) + i > size.x )
+            if( (int32_t)strlen(hintBuf) + i > size.x )
                 hintBuf[size.x-i] = EOS;
             b.moveCStr( i, hintBuf, cNormal );
             }

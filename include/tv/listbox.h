@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Salvador E. Tropea to add functionality.
 
  *
@@ -37,7 +37,7 @@ public:
               TScrollBar *aVScrollBar, Boolean aCenterOps = False );
     ~TListBox();
 
-    virtual uint32 dataSize();
+    virtual uint32_t dataSize();
     virtual void getData( void *rec );
     virtual void getText( char *dest, ccIndex item, short maxLen );
     virtual void newList( TCollection *aList );

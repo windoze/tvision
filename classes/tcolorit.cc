@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Salvador E. Tropea for i18n support.
 
  *
@@ -72,7 +72,7 @@ void TColorItemList::focusItem( ccIndex item )
     TColorItem *curItem = items;
     while( item-- > 0 )
         curItem = curItem->next;
-    message( owner, evBroadcast, cmNewColorIndex, (void *)(uipointer)(curItem->index));
+    message( owner, evBroadcast, cmNewColorIndex, (void *)(uintptr_t)(curItem->index));
 }
 
 void TColorItemList::getText( char *dest, ccIndex item, short maxChars )

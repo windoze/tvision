@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -69,7 +69,7 @@ void TColorDisplay::handleEvent( TEvent& event )
 void TColorDisplay::setColor( uchar *aColor )
 {
     color = aColor;
-    message( owner, evBroadcast, cmColorSet, (void *)(uipointer)(*color) );
+    message( owner, evBroadcast, cmColorSet, (void *)(uintptr_t)(*color) );
     drawView();
 }
 

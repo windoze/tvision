@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified to compile with gcc v3.x by Salvador E. Tropea, with the help of
 Andris Pavenis.
 Modified by Salvador E. Tropea to compile for 64 bits architectures.
@@ -235,7 +235,7 @@ void TFileViewer::insertLine(const char *line)
   size_t len = strlen(line)+1;
   buffer = (char *)realloc(buffer,real_bufsize+len);
   memcpy(buffer+real_bufsize,line,len);
-  fileLines->insert((void*)(uipointer)real_bufsize);
+  fileLines->insert((void*)(uintptr_t)real_bufsize);
   real_bufsize += len;
   count++;
   len--;
@@ -258,7 +258,7 @@ Boolean TFileViewer::valid( ushort )
 const char * const TFileViewer::operator [](int index)
 {
   if (index >= count) return NULL;
-  return (const char *)(buffer + (uipointer)fileLines->at(index));
+  return (const char *)(buffer + (uintptr_t)fileLines->at(index));
 }
 
 

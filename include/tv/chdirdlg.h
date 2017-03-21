@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -32,7 +32,7 @@ public:
     friend class TDirListBox;
 
     TChDirDialog( ushort aOptions, ushort histId );
-    virtual uint32 dataSize();
+    virtual uint32_t dataSize();
     virtual void getData( void *rec );
     virtual void handleEvent( TEvent& );
     virtual void setData( void *rec );

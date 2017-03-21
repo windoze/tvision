@@ -76,7 +76,7 @@ Boolean call10(const TEditor *edit, ushort *drawBuf, ushort color, int cx,
 #define normalColor (Colors & 0xff)
 #define selectColor (Colors >> 8)
 
-void TEditor::formatLine( void *DrawBuf, uint32 LinePtr, int Width,
+void TEditor::formatLine( void *DrawBuf, uint32_t LinePtr, int Width,
                           ushort Colors )
 {
   int count,offset,bufptr;

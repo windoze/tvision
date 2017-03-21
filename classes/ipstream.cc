@@ -4,7 +4,7 @@
  *      Copyright (c) 1994 by Borland International
  *      All Rights Reserved.
  *
- * Modified by Robert H”hne to be used for RHIDE.
+ * Modified by Robert Hï¿½hne to be used for RHIDE.
  *
  * SET: Moved the standard headers here because according to DJ
  * they can inconditionally declare symbols like NULL.
@@ -146,9 +146,9 @@ type ipstream::read##name()\
  Swap##name((char *)&temp);\
  return temp;\
 }
-DefineRead(16,uint16);
-DefineRead(32,uint32);
-DefineRead(64,uint64);
+DefineRead(16,uint16_t);
+DefineRead(32,uint32_t);
+DefineRead(64,uint64_t);
 
 void ipstream::readBytes( void *data, size_t sz )
 {

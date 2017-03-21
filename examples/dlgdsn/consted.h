@@ -76,7 +76,7 @@ class TConstEdit: public TDialog
    TRadioButtons * SortRB;
    TConstCollection * cList;
    TParamText * LVal;
-   int Select(TConstCollection * AItems, int32 Current);
+   int Select(TConstCollection * AItems, int32_t Current);
 public:
    TConstEdit();
    void Edit(TConstCollection * AItems);

@@ -87,11 +87,11 @@ struct TDMemoData
 {
    _viewdata_();
    int tabOrder;
-// uint32 bufSize;
+// uint32_t bufSize;
 // TNameStr Indicator;
    TNameStr hScroll;
    TNameStr vScroll;
-   uint32 bufSize;
+   uint32_t bufSize;
 };
 
 struct TDStaticData

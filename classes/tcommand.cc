@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -22,7 +22,7 @@ Modified by Robert H”hne to be used for RHIDE.
 #define COMMANDS_SIZE (COMMANDS_COUNT * 4)
 
 static
-uint32 masks[32] =
+uint32_t masks[32] =
 {
     0x00000001,
     0x00000002,
@@ -58,7 +58,7 @@ uint32 masks[32] =
     0x80000000
 };
 
-const uint32 fullMask=0xFFFFFFFF;
+const uint32_t fullMask=0xFFFFFFFF;
 
 static inline
 int loc( int cmd )
@@ -67,20 +67,20 @@ int loc( int cmd )
 }
 
 static inline
-uint32 mask( int cmd )
+uint32_t mask( int cmd )
 {
     return masks[ cmd & 0x1F ];
 }
 
 static inline
-uint32 rest( int cmd )
+uint32_t rest( int cmd )
 {
     return cmd & 0x1F;
 }
 
 TCommandSet::TCommandSet()
 {
-  cmds = (uint32 *)calloc(COMMANDS_COUNT,4);
+  cmds = (uint32_t *)calloc(COMMANDS_COUNT,4);
 }
 
 void TCommandSet::enableAllCommands()
@@ -95,7 +95,7 @@ TCommandSet::~TCommandSet()
 
 TCommandSet::TCommandSet( const TCommandSet& tc )
 {
-  cmds = (uint32 *)malloc(COMMANDS_SIZE);
+  cmds = (uint32_t *)malloc(COMMANDS_SIZE);
   memcpy(cmds,tc.cmds,COMMANDS_SIZE);
 }
 
@@ -149,10 +149,10 @@ void TCommandSet::enableCmd( int cmdStart, int cmdEnd )
   if (cmdEnd<MAX_COMMANDS && cmdEnd>cmdStart)
     {
      int pStart=loc(cmdStart);
-     uint32 rStart=mask(cmdStart);
+     uint32_t rStart=mask(cmdStart);
      int pEnd=loc(cmdEnd);
-     uint32 rEnd=mask(cmdEnd);
-     uint32 i;
+     uint32_t rEnd=mask(cmdEnd);
+     uint32_t i;
      int j;
 
      // Both in the same word
@@ -192,10 +192,10 @@ void TCommandSet::disableCmd( int cmdStart, int cmdEnd )
   if (cmdEnd<MAX_COMMANDS && cmdEnd>cmdStart)
     {
      int pStart=loc(cmdStart);
-     uint32 rStart=mask(cmdStart);
+     uint32_t rStart=mask(cmdStart);
      int pEnd=loc(cmdEnd);
-     uint32 rEnd=mask(cmdEnd);
-     uint32 i;
+     uint32_t rEnd=mask(cmdEnd);
+     uint32_t i;
      int j;
 
      // Both in the same word

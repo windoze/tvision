@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
  *
- * Modified by Robert H”hne to be used for RHIDE.
+ * Modified by Robert Hï¿½hne to be used for RHIDE.
 
 Modified cursor behavior while desktop locked by Salvador E. Tropea (SET)
 
@@ -88,10 +88,10 @@ void TGroup::changeBounds( const TRect& bounds )
 
 void addSubviewDataSize( TView *p, void *T )
 {
-   *((uint32 *)T) += ((TGroup *)p)->dataSize();
+   *((uint32_t *)T) += ((TGroup *)p)->dataSize();
 }
 
-uint32 TGroup::dataSize()
+uint32_t TGroup::dataSize()
 {
     unsigned T = 0;
     forEach( addSubviewDataSize, &T );

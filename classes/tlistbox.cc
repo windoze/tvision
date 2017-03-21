@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified by Salvador E. Tropea to add functionality.
 
  *
@@ -50,7 +50,7 @@ TListBox::~TListBox()
 {
 }
 
-uint32 TListBox::dataSize()
+uint32_t TListBox::dataSize()
 {
     return sizeof(TListBoxRec);
 }

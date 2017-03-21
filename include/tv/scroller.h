@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -40,8 +40,8 @@ public:
     virtual TPalette& getPalette() const;
     virtual void handleEvent( TEvent& event );
     virtual void scrollDraw();
-    void scrollTo( int32 x, int32 y );
-    void setLimit( int32 x, int32 y );
+    void scrollTo( int32_t x, int32_t y );
+    void setLimit( int32_t x, int32_t y );
     virtual void setState( ushort aState, Boolean enable );
     void checkDraw();
     virtual void shutDown();

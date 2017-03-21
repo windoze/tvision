@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 
  *
  *
@@ -36,7 +36,7 @@ public:
     void readDirectory( const char *dir, const char *wildCard );
     void readDirectory( const char *wildCard );
 
-    virtual uint32 dataSize();
+    virtual uint32_t dataSize();
     virtual void getData( void *rec );
     virtual void setData( void *rec );
     virtual void setState( ushort aState, Boolean enable );

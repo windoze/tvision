@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Added TCheckBoxes32 and code page stuff by Salvador Eduardo Tropea.
 
  *
@@ -69,7 +69,7 @@ class TCheckBoxes32 : public TCheckBoxes
 public:
  TCheckBoxes32(const TRect& bounds,TSItem *aStrings) :
    TCheckBoxes(bounds,aStrings) {};
- virtual uint32 dataSize();
+ virtual uint32_t dataSize();
 private:
 #if !defined( NO_STREAM )
  virtual const char *streamableName() const { return name; }

@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H”hne to be used for RHIDE.
+Modified by Robert Hï¿½hne to be used for RHIDE.
 Modified to compile with gcc v3.x by Salvador E. Tropea, with the help of
 Andris Pavenis.
 
@@ -28,7 +28,7 @@ UsingNamespaceStd
 TTerminal::TTerminal( const TRect& bounds,
                       TScrollBar *aHScrollBar,
                       TScrollBar *aVScrollBar,
-                      uint32 aBufSize ) :
+                      uint32_t aBufSize ) :
     TTextDevice(bounds, aHScrollBar, aVScrollBar),
     queFront( 0 ),
     queBack( 0 )
@@ -47,13 +47,13 @@ TTerminal::~TTerminal()
     delete buffer;
 }
 
-Boolean TTerminal::canInsert( uint32 amount )
+Boolean TTerminal::canInsert( uint32_t amount )
 {
-    int32 T = (queFront < queBack) ?
+    int32_t T = (queFront < queBack) ?
         ( queFront +  amount ) :
-        ( int32(queFront) - bufSize + amount);   // cast needed so we get
+        ( int32_t(queFront) - bufSize + amount);   // cast needed so we get
                                                 // signed comparison
-    return Boolean( (int32)queBack > T );
+    return Boolean( (int32_t)queBack > T );
 }
 
 const int MaxLineLen=256;
@@ -61,9 +61,9 @@ const int MaxLineLen=256;
 void TTerminal::draw()
 {
     short  i;
-    uint32 begLine, endLine;
+    uint32_t begLine, endLine;
     char s[MaxLineLen];
-    int32 bottomLine;
+    int32_t bottomLine;
 
     bottomLine = size.y + delta.y;
     if( limit.y > bottomLine )
@@ -106,7 +106,7 @@ void TTerminal::draw()
            memcpy( s+T, buffer, T2 );
            s[T+T2] = EOS;
           }
-        if( delta.x >= (int32)strlen(s) )
+        if( delta.x >= (int32_t)strlen(s) )
             *s = EOS;
         else
             strcpy( s, &s[delta.x] );
@@ -118,7 +118,7 @@ void TTerminal::draw()
         }
 }
 
-uint32 TTerminal::nextLine( uint32 pos )
+uint32_t TTerminal::nextLine( uint32_t pos )
 {
     if( pos != queFront )
         {
@@ -133,7 +133,7 @@ uint32 TTerminal::nextLine( uint32 pos )
 int TTerminal::do_sputn( const char *s, int count )
 {
     ushort screenLines = limit.y;
-    int32 i;
+    int32_t i;
     for( i = 0; i < count; i++ )
         if( s[i] == '\n' )
             screenLines++;
@@ -160,7 +160,7 @@ int TTerminal::do_sputn( const char *s, int count )
     setLimit( limit.x, screenLines );
     scrollTo( 0, screenLines + 1 );
     i = prevLines( queFront, 1 );
-    if( i <= (int32)queFront )
+    if( i <= (int32_t)queFront )
         i = queFront - i;
     else
         i = bufSize - (i - queFront);
@@ -191,9 +191,9 @@ otstream::otstream( TTerminal *tt )
 // SET: It was really broken, but as we never used it...
 // I rewrote it. I also used bufInc and bufDec and made it inline. (instead
 // of the old macros).
-uint32 TTerminal::prevLines(uint32 posStart, uint32 Lines)
+uint32_t TTerminal::prevLines(uint32_t posStart, uint32_t Lines)
 {
- uint32 pos=posStart;
+ uint32_t pos=posStart;
 
  // If that's the start just return, we can't go back. Remmember that's a
  // circular buffer.

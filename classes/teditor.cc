@@ -158,7 +158,7 @@ TEditor::TEditor( const TRect& bounds,
                   TScrollBar *aHScrollBar,
                   TScrollBar *aVScrollBar,
                   TIndicator *aIndicator,
-		  uint32 aBufSize ) :
+		  uint32_t aBufSize ) :
     TView( bounds ),
     hScrollBar( aHScrollBar ),
     vScrollBar( aVScrollBar ),
@@ -206,7 +206,7 @@ void TEditor::changeBounds( const TRect& bounds )
 }
 
 /* SET: Note that Robert added a tabSize member to the class */
-int TEditor::charPos( uint32 p, uint32 target )
+int TEditor::charPos( uint32_t p, uint32_t target )
 {
     int pos = 0;
     while( p < target )
@@ -223,7 +223,7 @@ int TEditor::charPos( uint32 p, uint32 target )
     return pos;
 }
 
-uint32 TEditor::charPtr( uint32 p, int target )
+uint32_t TEditor::charPtr( uint32_t p, int target )
 {
   int pos = 0;
   while( (pos < target) && (p < bufLen) && (bufChar(p) != '\x0D') && (bufChar(p) != '\x0A') )
@@ -312,8 +312,8 @@ Boolean TEditor::cursorVisible()
   return Boolean((curPos.y >= delta.y) && (curPos.y < delta.y + size.y));
 }
 
-void TEditor::deleteRange( uint32 startPtr,
-			   uint32 endPtr,
+void TEditor::deleteRange( uint32_t startPtr,
+			   uint32_t endPtr,
                            Boolean delSelect
                          )
 {
@@ -401,7 +401,7 @@ void TEditor::draw()
     drawLines( 0, size.y, drawPtr );
 }
 
-void TEditor::drawLines( int y, int count, uint32 linePtr )
+void TEditor::drawLines( int y, int count, uint32_t linePtr )
 {
     ushort color = getColor(0x0201);
     while( count-- > 0 )
@@ -425,7 +425,7 @@ void TEditor::find()
         }
 }
 
-uint32 TEditor::getMousePtr( TPoint m )
+uint32_t TEditor::getMousePtr( TPoint m )
 {
     TPoint mouse = makeLocal( m );
     mouse.x = max(0, min(mouse.x, size.x - 1));
@@ -644,7 +644,7 @@ void TEditor::handleEvent( TEvent& event )
 //     return isalnum(ch) || ch == '_';
 // }
 
-int countLines( void *buf, uint32 count )
+int countLines( void *buf, uint32_t count )
 {
   int ret=0,i=0;
   while (count--) if (((const char *)(buf))[i++] == 0x0a) ret++;
@@ -653,15 +653,15 @@ int countLines( void *buf, uint32 count )
 
 #define Block ((const char *)(block))
 
-uint32 scan( const void *block, uint32 size, const char *str )
+uint32_t scan( const void *block, uint32_t size, const char *str )
 {
     if (!size) return (UINT_MAX);
-    uint32 ret=0;
+    uint32_t ret=0;
     while (size--)
     {
       if (Block[ret] == str[0])
       {
-	uint32 i=0;
+	uint32_t i=0;
         do
         {
 	  i++;
@@ -674,15 +674,15 @@ uint32 scan( const void *block, uint32 size, const char *str )
     return (UINT_MAX);
 }
 
-uint32 iScan( const void *block, uint32 size, const char *str )
+uint32_t iScan( const void *block, uint32_t size, const char *str )
 {
     if (!size) return (UINT_MAX);
-    uint32 ret=0;
+    uint32_t ret=0;
     while (size--)
     {
       if (toupper(Block[ret]) == toupper(str[0]))
       {
-	uint32 i=0;
+	uint32_t i=0;
         do
         {
 	  i++;
@@ -712,18 +712,18 @@ void TEditor::initBuffer()
 }
 
 Boolean TEditor::insertBuffer( char *p,
-			       uint32 offset,
-			       uint32 length,
+			       uint32_t offset,
+			       uint32_t length,
                                Boolean allowUndo,
                                Boolean selectText
                              )
 {
     selecting = False;
-    uint32 selLen = selEnd - selStart;
+    uint32_t selLen = selEnd - selStart;
     if( selLen == 0 && length == 0 )
         return True;
 
-    uint32 delLen = 0;
+    uint32_t delLen = 0;
     if( allowUndo == True )
         {
         if( curPtr == selStart )
@@ -733,16 +733,16 @@ Boolean TEditor::insertBuffer( char *p,
                 delLen = selLen - insCount;
         }
 
-    uint32 newSize = uint32(bufLen + delCount - selLen + delLen) + length;
+    uint32_t newSize = uint32_t(bufLen + delCount - selLen + delLen) + length;
 
     if( newSize > bufLen + delCount )
-	if( setBufSize((uint32)(newSize)) == False )
+	if( setBufSize((uint32_t)(newSize)) == False )
             {
             editorDialog( edOutOfMemory );
             return False;
             }
 
-    uint32 selLines = countLines( &buffer[bufPtr(selStart)], selLen );
+    uint32_t selLines = countLines( &buffer[bufPtr(selStart)], selLen );
     if( curPtr == selEnd )
         {
         if( allowUndo == True )
@@ -772,7 +772,7 @@ Boolean TEditor::insertBuffer( char *p,
                 length
                );
 
-    uint32 lines = countLines( &buffer[curPtr], length );
+    uint32_t lines = countLines( &buffer[curPtr], length );
     curPtr += length;
     curPos.y += lines;
     drawLine = curPos.y;
@@ -810,7 +810,7 @@ Boolean TEditor::insertFrom( TEditor *editor )
                         );
 }
 
-Boolean TEditor::insertText( const void *text, uint32 length, Boolean selectText )
+Boolean TEditor::insertText( const void *text, uint32_t length, Boolean selectText )
 {
   return insertBuffer( (char *)text, 0, length, canUndo, selectText);
 }
@@ -820,9 +820,9 @@ Boolean TEditor::isClipboard()
     return Boolean(clipboard == this);
 }
 
-uint32 TEditor::lineMove( uint32 p, int count )
+uint32_t TEditor::lineMove( uint32_t p, int count )
 {
-    uint32 i = p;
+    uint32_t i = p;
     p = lineStart(p);
     int pos = charPos(p, i);
     while( count != 0 )
@@ -851,8 +851,8 @@ void TEditor::lock()
 
 void TEditor::newLine()
 {
-    uint32 p = lineStart(curPtr);
-    uint32 i = p;
+    uint32_t p = lineStart(curPtr);
+    uint32_t i = p;
     while( i < curPtr &&
            ( (buffer[i] == ' ') || (buffer[i] == '\x9'))
          )
@@ -862,12 +862,12 @@ void TEditor::newLine()
         insertText( &buffer[p], i - p, False);
 }
 
-uint32 TEditor::nextLine( uint32 p )
+uint32_t TEditor::nextLine( uint32_t p )
 {
     return nextChar(lineEnd(p));
 }
 
-uint32 TEditor::nextWord( uint32 p )
+uint32_t TEditor::nextWord( uint32_t p )
 {
    if (isWordChar(bufChar(p)))
       while (p < bufLen && isWordChar(bufChar(p)))
@@ -879,12 +879,12 @@ uint32 TEditor::nextWord( uint32 p )
    return p;
 }
 
-uint32 TEditor::prevLine( uint32 p )
+uint32_t TEditor::prevLine( uint32_t p )
 {
   return lineStart(prevChar(p));
 }
 
-uint32 TEditor::prevWord( uint32 p )
+uint32_t TEditor::prevWord( uint32_t p )
 {
     while( p > 0 && isWordChar(bufChar(prevChar(p))) == 0 )
         p = prevChar(p);
@@ -920,8 +920,8 @@ void TEditor::scrollTo( int x, int y )
 
 Boolean TEditor::search( const char *findStr, ushort opts )
 {
-    uint32 pos = curPtr;
-    uint32 i;
+    uint32_t pos = curPtr;
+    uint32_t i;
     do  {
         if( (opts & efCaseSensitive) != 0 )
             i = scan( &buffer[bufPtr(pos)], bufLen - pos, findStr);
@@ -952,7 +952,7 @@ Boolean TEditor::search( const char *findStr, ushort opts )
     return False;
 }
 
-void TEditor::setBufLen( uint32 length )
+void TEditor::setBufLen( uint32_t length )
 {
     bufLen = length;
     gapLen = bufSize - length;
@@ -972,7 +972,7 @@ void TEditor::setBufLen( uint32 length )
     update(ufView);
 }
 
-Boolean TEditor::setBufSize( uint32 newSize )
+Boolean TEditor::setBufSize( uint32_t newSize )
 {
     return Boolean(newSize <= bufSize);
 }
@@ -987,9 +987,9 @@ void TEditor::setCmdState( ushort command, Boolean enable )
         disableCommands(s);
 }
 
-void TEditor::setCurPtr( uint32 p, uchar selectMode )
+void TEditor::setCurPtr( uint32_t p, uchar selectMode )
 {
-    uint32 anchor;
+    uint32_t anchor;
     if( (selectMode & smExtend) == 0 )
         anchor = p;
     else if( curPtr == selStart )
@@ -1017,9 +1017,9 @@ void TEditor::setCurPtr( uint32 p, uchar selectMode )
         }
 }
 
-void TEditor::setSelect( uint32 newStart, uint32 newEnd, Boolean curStart )
+void TEditor::setSelect( uint32_t newStart, uint32_t newEnd, Boolean curStart )
 {
-    uint32 p;
+    uint32_t p;
     if( curStart != 0 )
         p = newStart;
     else
@@ -1035,14 +1035,14 @@ void TEditor::setSelect( uint32 newStart, uint32 newEnd, Boolean curStart )
         {
         if( p > curPtr )
             {
-	    uint32 l = p - curPtr;
+	    uint32_t l = p - curPtr;
             memmove( &buffer[curPtr], &buffer[curPtr + gapLen], l);
             curPos.y += countLines(&buffer[curPtr], l);
             curPtr = p;
             }
         else
             {
-	    uint32 l = curPtr - p;
+	    uint32_t l = curPtr - p;
             curPtr = p;
             curPos.y -= countLines(&buffer[curPtr], l);
             memmove( &buffer[curPtr + gapLen], &buffer[curPtr], l);
@@ -1107,7 +1107,7 @@ void TEditor::undo()
         {
         selStart = curPtr - insCount;
         selEnd = curPtr;
-	uint32 length = delCount;
+	uint32_t length = delCount;
         delCount = 0;
         insCount = 0;
         insertBuffer(buffer, curPtr + gapLen - length, length, False, True);
@@ -1204,22 +1204,22 @@ TEditor::TEditor( StreamableInit ) : TView( streamableInit )
 // with only one patch.
 // EDITS.CC
 
-char TEditor::bufChar( uint32 p )
+char TEditor::bufChar( uint32_t p )
 {
   if (p>=curPtr) p+=gapLen;
   return buffer[p];
 }
 
-uint32 TEditor::bufPtr(uint32 p)
+uint32_t TEditor::bufPtr(uint32_t p)
 {
   if (p<curPtr) return p;
   return (p+gapLen);
 }
 
-uint32 TEditor::lineEnd(uint32 p)
+uint32_t TEditor::lineEnd(uint32_t p)
 {
 #if 1
-  int32 di = p,cx,bx;
+  int32_t di = p,cx,bx;
   bx = 0;
   cx = curPtr-di;
   if (cx<=0) goto lab1;
@@ -1260,9 +1260,9 @@ lab3:
 #endif
 }
 
-uint32 TEditor::lineStart(uint32 p)
+uint32_t TEditor::lineStart(uint32_t p)
 {
-  int32 di = p,cx,bx;
+  int32_t di = p,cx,bx;
   bx = 0;
   cx = di;
   cx -= curPtr;
@@ -1292,8 +1292,8 @@ lab2:
   di++;
   di++;
   di -= bx;
-  if ((uint32)di == curPtr) goto lab4;
-  if ((uint32)di == bufLen) goto lab4;
+  if ((uint32_t)di == curPtr) goto lab4;
+  if ((uint32_t)di == bufLen) goto lab4;
   // SET: When lines end only with \n it fails
   #ifdef CLY_UseCrLf
   if (buffer[di+bx] != '\n') goto lab4;
@@ -1306,26 +1306,26 @@ lab4:
   return di;
 }
 
-uint32 TEditor::nextChar(uint32 p)
+uint32_t TEditor::nextChar(uint32_t p)
 {
  if (p==bufLen) return p;
  p++;
  if (p==bufLen) return p;
  #ifdef CLY_UseCrLf
- uint32 gl=0;
+ uint32_t gl=0;
  if (p>=curPtr) gl=gapLen;
  if (buffer[gl+p]=='\n' && buffer[gl+p-1]=='\r') return (p+1);
  #endif
  return p;
 }
 
-uint32 TEditor::prevChar(uint32 p)
+uint32_t TEditor::prevChar(uint32_t p)
 {
  if (!p) return p;
  p--;
  if (!p) return p;
  #ifdef CLY_UseCrLf
- uint32 gl=0;
+ uint32_t gl=0;
  if (p>=curPtr) gl=gapLen;
  if (buffer[gl+p]=='\n' && buffer[gl+p-1]=='\r') return (p-1);
  #endif
@@ -1345,4 +1345,4 @@ ushort TEditor::editorFlags = efBackupFiles | efPromptOnReplace;
 char TEditor::findStr[maxFindStrLen] = "";
 char TEditor::replaceStr[maxReplaceStrLen] = "";
 TEditor *TEditor::clipboard = 0;
-uint32 TEditor::tabSize = 8;
+uint32_t TEditor::tabSize = 8;

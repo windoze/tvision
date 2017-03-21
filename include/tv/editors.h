@@ -178,13 +178,13 @@ class TEditor : public TView
 
 public:
 
-    TEditor( const TRect&, TScrollBar *, TScrollBar *, TIndicator *, uint32 );
+    TEditor( const TRect&, TScrollBar *, TScrollBar *, TIndicator *, uint32_t );
     virtual ~TEditor();
 
     virtual void shutDown();
 
-    char bufChar( uint32 );
-    uint32 bufPtr( uint32 );
+    char bufChar( uint32_t );
+    uint32_t bufPtr( uint32_t );
     virtual void changeBounds( const TRect& );
     virtual void convertEvent( TEvent& );
     Boolean cursorVisible();
@@ -194,49 +194,49 @@ public:
     virtual TPalette& getPalette() const;
     virtual void handleEvent( TEvent& );
     virtual void initBuffer();
-    Boolean insertBuffer( char *, uint32, uint32, Boolean, Boolean );
+    Boolean insertBuffer( char *, uint32_t, uint32_t, Boolean, Boolean );
     virtual Boolean insertFrom( TEditor * );
-    Boolean insertText( const void *, uint32, Boolean );
+    Boolean insertText( const void *, uint32_t, Boolean );
     void scrollTo( int, int );
     Boolean search( const char *, ushort );
-    virtual Boolean setBufSize( uint32 );
+    virtual Boolean setBufSize( uint32_t );
     void setCmdState( ushort, Boolean );
-    void setSelect( uint32, uint32, Boolean);
+    void setSelect( uint32_t, uint32_t, Boolean);
     virtual void setState( ushort, Boolean );
     void trackCursor( Boolean );
     void undo();
     virtual void updateCommands();
     virtual Boolean valid( ushort );
 
-    int charPos( uint32, uint32 );
-    uint32 charPtr( uint32, int );
+    int charPos( uint32_t, uint32_t );
+    uint32_t charPtr( uint32_t, int );
     Boolean clipCopy();
     void clipCut();
     void clipPaste();
-    void deleteRange( uint32, uint32, Boolean );
+    void deleteRange( uint32_t, uint32_t, Boolean );
     void doUpdate();
     void doSearchReplace();
-    void drawLines( int, int, uint32 );
-    virtual void formatLine(void *, uint32, int, ushort );
+    void drawLines( int, int, uint32_t );
+    virtual void formatLine(void *, uint32_t, int, ushort );
     void find();
-    uint32 getMousePtr( TPoint );
+    uint32_t getMousePtr( TPoint );
     Boolean hasSelection();
     void hideSelect();
     Boolean isClipboard();
-    uint32 lineEnd( uint32 );
-    uint32 lineMove( uint32, int );
-    uint32 lineStart( uint32 );
+    uint32_t lineEnd( uint32_t );
+    uint32_t lineMove( uint32_t, int );
+    uint32_t lineStart( uint32_t );
     void lock();
     void newLine();
-    uint32 nextChar( uint32 );
-    uint32 nextLine( uint32 );
-    uint32 nextWord( uint32 );
-    uint32 prevChar( uint32 );
-    uint32 prevLine( uint32 );
-    uint32 prevWord( uint32 );
+    uint32_t nextChar( uint32_t );
+    uint32_t nextLine( uint32_t );
+    uint32_t nextWord( uint32_t );
+    uint32_t prevChar( uint32_t );
+    uint32_t prevLine( uint32_t );
+    uint32_t prevWord( uint32_t );
     void replace();
-    void setBufLen( uint32 );
-    void setCurPtr( uint32, uchar );
+    void setBufLen( uint32_t );
+    void setCurPtr( uint32_t, uchar );
     void startSelect();
     void toggleInsMode();
     void unlock();
@@ -247,19 +247,19 @@ public:
     TScrollBar *vScrollBar;
     TIndicator *indicator;
     char *buffer;
-    uint32 bufSize;
-    uint32 bufLen;
-    uint32 gapLen;
-    uint32 selStart;
-    uint32 selEnd;
-    uint32 curPtr;
+    uint32_t bufSize;
+    uint32_t bufLen;
+    uint32_t gapLen;
+    uint32_t selStart;
+    uint32_t selEnd;
+    uint32_t curPtr;
     TPoint curPos;
     TPoint delta;
     TPoint limit;
     int drawLine;
-    uint32 drawPtr;
-    uint32 delCount;
-    uint32 insCount;
+    uint32_t drawPtr;
+    uint32_t delCount;
+    uint32_t insCount;
     Boolean isValid;
     Boolean canUndo;
     Boolean modified;
@@ -272,7 +272,7 @@ public:
     static char findStr[maxFindStrLen];
     static char replaceStr[maxReplaceStrLen];
     static TEditor * clipboard;
-    static uint32 tabSize;
+    static uint32_t tabSize;
     uchar lockCount;
     uchar updateFlags;
     int keyState;
@@ -319,7 +319,7 @@ struct TEvent;
 
 struct TMemoData
 {
-    uint32 length;
+    uint32_t length;
     char buffer[65536];
 };
 
@@ -328,10 +328,10 @@ class TMemo : public TEditor
 
 public:
 
-    TMemo( const TRect&, TScrollBar *, TScrollBar *, TIndicator *, uint32 );
+    TMemo( const TRect&, TScrollBar *, TScrollBar *, TIndicator *, uint32_t );
     virtual void getData( void *rec );
     virtual void setData( void *rec );
-    virtual uint32 dataSize();
+    virtual uint32_t dataSize();
     virtual TPalette& getPalette() const;
     virtual void handleEvent( TEvent& );
 
@@ -400,7 +400,7 @@ public:
     Boolean save();
     Boolean saveAs();
     Boolean saveFile();
-    virtual Boolean setBufSize( uint32 );
+    virtual Boolean setBufSize( uint32_t );
     virtual void shutDown();
     virtual void updateCommands();
     virtual Boolean valid( ushort );
