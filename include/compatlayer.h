@@ -1918,6 +1918,11 @@ when compiler version 7.0 was released.
    #define Include_strstrea 1
   #endif
  #endif
+
+#ifndef usleep
+ // Doesn't work, needs to be fixed.
+#define usleep(microseconds) CLY_YieldProcessor(microseconds)
+#endif
 #endif
 
 #ifdef Uses_IOS_BIN
@@ -2128,6 +2133,9 @@ CLY_CFunc int  CLY_getcurdir(int drive, char *buffer);
  #ifndef PATH_MAX /* BC++ and MSVC */
   #define PATH_MAX 512
  #endif
+#endif
+#ifndef PATH_MAX /* BC++ and MSVC */
+#define PATH_MAX 512
 #endif
 
 #if defined(Include_fcntl) && !defined(Included_fcntl)

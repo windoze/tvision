@@ -1,6 +1,6 @@
 /**[txh]********************************************************************
 
-  Copyright (c) 2002 by Jose Angel Sánchez Caso (JASC)
+  Copyright (c) 2002 by Jose Angel SÃŸnchez Caso (JASC)
   
     -> altomaltes@yahoo.es
     -> altomaltes@gmail.com
@@ -369,7 +369,7 @@ TScreenWinGr::TScreenWinGr()
  */
 
   cursorProc( hwnd     // handle of window for timer messages
-            , 0        // Don´t draw cursor
+            , 0        // Donâ”¤t draw cursor
             , 0        // timer identifier
             , 0 );     // current system time
             

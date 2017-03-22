@@ -79,7 +79,7 @@ TMenuBar *TMyApp::initMenuBar(TRect r)
  r.b.y=r.a.y+1;
  return new TMenuBar( r,
      //*new TSubMenu("~F~ile",kbAltF)+
-     *new TSubMenu("~ๆ~มสฬ",0)+ // KOI8 test
+     *new TSubMenu("~\xe6~\xc1\xca\xcc",0)+ // KOI8 test
          *new TMenuItem("~O~pen",200,kbF3,hcNoContext,"F3")+
          *new TMenuItem("~N~ew", 200,kbF4,hcNoContext,"F4")+
          newLine()+

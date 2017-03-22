@@ -14,7 +14,9 @@
 #endif
 
 int CLY_isUNC_helper_NT(const char* server, const char* share);
+#if 0
 int CLY_isUNC_helper_95(const char* server, const char* share);
+#endif
 
 #define is_slash(c) (c == '/' || c == '\\')
 #define is_term(c) (c == '/' || c == '\\' || c == '\0')
@@ -80,11 +82,13 @@ int CLY_IsUNCShare(const char* path)
       ret = CLY_isUNC_helper_NT(server, share);
       nt = !(ret == -1);
     }
+#if 0
     if (nt == 0)
     {
       ret = CLY_isUNC_helper_95(server, share);
       if (ret == -1) nt = -1, ret = 0;
     }
+#endif
     return ret;
   }
 
