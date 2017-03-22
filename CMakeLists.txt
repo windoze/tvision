@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(rhtvision)
 
-option(ENABLE_WINGR_DRIVER "Enable WinGr Driver" OFF)
+option(ENABLE_WINGR_DRIVER "Enable WinGr Driver" ON)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}")
 include(TVConfig)
@@ -437,15 +437,15 @@ set(RHTV_DOS_SRCS
 )
 
 set(RHTV_LINUX_SRCS
-	include/tv/linux/key.h
-	include/tv/linux/log.h
-	include/tv/linux/mouse.h
-	include/tv/linux/screen.h
-	classes/linux/linuxdis.cc
-	classes/linux/linuxkey.cc
-	classes/linux/linuxmouse.cc
-	classes/linux/linuxscr.cc
-)
+		include/tv/linux/key.h
+		include/tv/linux/log.h
+		include/tv/linux/mouse.h
+		include/tv/linux/screen.h
+		classes/linux/linuxdis.cc
+		classes/linux/linuxkey.cc
+		classes/linux/linuxmouse.cc
+		classes/linux/linuxscr.cc
+		)
 
 set(RHTV_QNX4_SRCS
 	include/tv/qnx4/key.h
@@ -484,14 +484,21 @@ set(RHTV_UNIX_SRCS
 	classes/unix/xtermscr.cc
 )
 
-set(RHTV_WIN32_SRCS
+set(RHTV_WINDOWS_SRCS
 	compat/fnmatch.c
 	compat/glob.c
 	compat/globfree.c
 	compat/mkstemp.c
-	compat/ntdirent.c	
+	compat/ntdirent.c
 	compat/unc.c
-	compat/unc_95.c
+	compat/unc_nt.c
+	include/tv/wingr/key.h
+	include/tv/wingr/mouse.h
+	include/tv/wingr/screen.h
+	classes/wingr/wingrdis.cc
+	classes/wingr/wingrkey.cc
+	classes/wingr/wingrmouse.cc
+	classes/wingr/wingrscr.cc
 	include/tv/win32/key.h
 	include/tv/win32/mouse.h
 	include/tv/win32/screen.h
@@ -501,28 +508,6 @@ set(RHTV_WIN32_SRCS
 	classes/win32/win32key.cc
 	classes/win32/win32mouse.cc
 	classes/win32/win32scr.cc
-)
-
-set(RHTV_WINGR_SRCS
-	include/tv/wingr/key.h
-	include/tv/wingr/mouse.h
-	include/tv/wingr/screen.h
-	classes/wingr/wingrdis.cc
-	classes/wingr/wingrkey.cc
-	classes/wingr/wingrmouse.cc
-	classes/wingr/wingrscr.cc
-)
-
-set(RHTV_WINNT_SRCS
-	compat/fnmatch.c
-	compat/glob.c
-	compat/globfree.c
-	compat/mkstemp.c
-	compat/ntdirent.c	
-	compat/unc.c
-	compat/unc_nt.c
-	include/tv/win32/win32clip.h
-	classes/win32/win32clip.cc
 	include/tv/winnt/key.h
 	include/tv/winnt/mouse.h
 	include/tv/winnt/screen.h
@@ -554,14 +539,7 @@ set(RHTV_X11_SRCS
 #endif(QNXRTP)
 
 if(WIN32)
-	# WinGR?
-	if(CMAKE_SYSTEM_VERSION MATCHES "4.0" OR CMAKE_SYSTEM_VERSION MATCHES "4.10" OR CMAKE_SYSTEM_VERSION MATCHES "4.90")
-		# Win95, Win98, WinME
-		set(RHTV_PLATFORM_SRCS "${RHTV_WIN32_SRCS}")
-	else(CMAKE_SYSTEM_VERSION MATCHES "4.0" OR CMAKE_SYSTEM_VERSION MATCHES "4.10" OR CMAKE_SYSTEM_VERSION MATCHES "4.90")
-		# WinNT/2000/XP/...
-		set(RHTV_PLATFORM_SRCS "${RHTV_WINNT_SRCS}")
-	endif(CMAKE_SYSTEM_VERSION MATCHES "4.0" OR CMAKE_SYSTEM_VERSION MATCHES "4.10" OR CMAKE_SYSTEM_VERSION MATCHES "4.90")
+	set(RHTV_PLATFORM_SRCS "${RHTV_WINDOWS_SRCS}")
 endif(WIN32)
 
 if(UNIX)
@@ -572,9 +550,9 @@ if(X11_FOUND)
 	list(APPEND RHTV_PLATFORM_SRCS "${RHTV_X11_SRCS}")
 endif(X11_FOUND)
 
-if("${CMAKE_SYSTEM_NAME}" EQUAL "Linux")
+if("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
 	list(APPEND RHTV_PLATFORM_SRCS "${RHTV_LINUX_SRCS}")
-endif("${CMAKE_SYSTEM_NAME}" EQUAL "Linux")
+endif("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
 
 add_library(rhtv ${RHTV_HDRS} ${INTL_SRCS} ${COMPAT_SRCS} ${RHTV_SRCS} ${RHTV_PLATFORM_SRCS} ${RHTV_REGEX_SRCS} ${RHTV_SSC_SRCS})
 

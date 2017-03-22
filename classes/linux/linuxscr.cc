@@ -167,7 +167,7 @@ int            TScreenLinux::origCPScr,
 struct stCodePageCk
 {
  int codepage;
- uint32 checksum;
+ uint32_t checksum;
 };
 
 // ISO 8859-2 fonts seems to have a lot of bugs:
@@ -245,7 +245,7 @@ typedef struct
  ushort sel_mode __attribute__((packed));
 } setSel;
 
-static uint32 adler32(uint32 adler, const char *buf, unsigned len);
+static uint32_t adler32(uint32_t adler, const char *buf, unsigned len);
 
 TScreen *TV_LinuxDriverCheck()
 {
@@ -386,7 +386,7 @@ int TScreenLinux::AnalyzeCodePage()
         else
            fprintf(stderr,"0x%02X U+%04x\n",i,UnicodeMap[i]);
     // Compute a good check sum
-    uint32 cks=adler32(0,(char *)UnicodeMap,256*sizeof(ushort));
+    uint32_t cks=adler32(0,(char *)UnicodeMap,256*sizeof(ushort));
     fprintf(stderr,"Adler-32 checksum: 0x%08X\n",cks);
     // Map it to internal codes
     fputs("-------------\nInternal codes equivalent:\n",stderr);
@@ -460,7 +460,7 @@ int TScreenLinux::AnalyzeCodePage()
         fputc('\n',stderr);
     }
  // Compute a good check sum
- uint32 cksS=adler32(0,(char *)scrUniMap,E_TABSZ*sizeof(ushort));
+ uint32_t cksS=adler32(0,(char *)scrUniMap,E_TABSZ*sizeof(ushort));
  fprintf(stderr,"Adler-32 checksum for screen map: 0x%08X\n",cksS);
  for (i=0; knownScreenMaps[i].codepage && knownScreenMaps[i].checksum!=cksS; i++);
  if (knownScreenMaps[i].codepage)
@@ -535,7 +535,7 @@ int TScreenLinux::AnalyzeCodePage()
         UnicodeMap[pos]=map.entries[i].unicode;
     }
  // Compute a good check sum of it
- uint32 cks=adler32(0,(char *)UnicodeMap,256*sizeof(ushort));
+ uint32_t cks=adler32(0,(char *)UnicodeMap,256*sizeof(ushort));
  // Find if we know about this one
  for (i=0; knownFonts[i].codepage && knownFonts[i].checksum!=cks; i++);
  if (knownFonts[i].codepage)
@@ -1595,7 +1595,7 @@ int TScreenLinux::System(const char *command, pid_t *pidChild, int in,
  modified, so I think that's ok and compatible with GPL.
  */
 
-const uint32 Base=65521; /* largest prime smaller than 65536 */
+const uint32_t Base=65521; /* largest prime smaller than 65536 */
 const unsigned nMax=5552;
 /* nMax is the largest n such that 255n(n+1)/2 + (n+1)(Base-1) <= 2^32-1 */
 
@@ -1606,10 +1606,10 @@ const unsigned nMax=5552;
 #define DO16(buf)   DO8(buf,0); DO8(buf,8);
 
 static
-uint32 adler32(uint32 adler, const char *buf, unsigned len)
+uint32_t adler32(uint32_t adler, const char *buf, unsigned len)
 {
- uint32 s1=adler & 0xffff;
- uint32 s2=(adler>>16) & 0xffff;
+ uint32_t s1=adler & 0xffff;
+ uint32_t s2=(adler>>16) & 0xffff;
  int k;
 
  if (buf==NULL)

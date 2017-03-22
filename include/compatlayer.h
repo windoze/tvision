@@ -557,14 +557,9 @@ typedef unsigned long  ulong;
    #undef  Uses_CLY_nl_langinfo
    #define Uses_CLY_nl_langinfo 1
   #endif
-  #undef  Uses_CLY_ssize_t
-  #define Uses_CLY_ssize_t 1
   #ifdef Uses_getline
    #undef  Uses_CLY_getline
    #define Uses_CLY_getline 1
-  #endif
-  #ifndef usleep
-   #define usleep(microseconds) CLY_YieldProcessor(microseconds)
   #endif
   #ifndef __MINGW32_MAJOR_VERSION
    // MinGW people is really ignorant about gcc.
