@@ -1,4 +1,4 @@
-/* Copyright (C) 1996-1998 Robert H”hne */
+/* Copyright (C) 1996-1998 Robert HÂ”hne */
 /* Modified by Salvador E. Tropea, Vadim Bolodorov and Anatoli Soltan */
 #include <tv/configtv.h>
 
@@ -24,7 +24,7 @@ extern void __tvWin32Yield(int micros);
 
 void CLY_ReleaseCPU()
 {
- __tvWin32Yield(-1);
+ __tvWin32Yield(100); // -1 guyr
 }
 #else
 // By Vadim Beloborodov to be used on WIN32 console
