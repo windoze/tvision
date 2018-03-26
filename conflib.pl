@@ -591,7 +591,7 @@ sub FindCFLAGS
 # Description:
 #  Simple hook to get the extra dirs.
 #
-# Return: 
+# Return:
 #  Space separated list of directories.
 #
 ####################################################################[txi]###
@@ -811,10 +811,17 @@ sub DetectOS
     $supportDir='win32';
     $ExeExt='.exe';
    }
- elsif ($os=~/MINGW/)
+ elsif ($os=~/MINGW/ || $os=~/MSYS_NT/)
    {
     $OS='Win32';
-    $OSf='';
+    if ($os=~/MSYS_NT/)
+      {
+       $OSf='NT';
+      }
+    else
+      {
+       $OSf='';
+      }
     $Compf='MinGW';
     $stdcxx='-lstdc++';
     $defaultCXX='g++';
@@ -1081,7 +1088,7 @@ sub CreateRHIDEenvs
     $rep ='rc';
     $rep.='s' unless $conf{'UseRanLib'};
     $text.="RHIDE_ARFLAGS=$rep\n";
-    
+
     if ($useXtreme)
       {
        $text.="RHIDE_OS_CFLAGS=@conf{'XCFLAGS'}\n";
