@@ -5,7 +5,7 @@
  *      All Rights Reserved.
  *
 
-Modified by Robert H�hne to be used for RHIDE.
+Modified by Robert Hhne to be used for RHIDE.
 Modified by Vadim Beloborodov to be used on WIN32 console
 Modified by Salvador E. Tropea to exclude .. in parent dir and
 exlude some particular files by configuration.
@@ -342,7 +342,7 @@ void TFileList::readDirectory( const char *aWildCard )
   else
     {
      slash = wildcard;
-     path = ".";
+     path = (char*) ".";
      char *cwd=getcwd(0,PATH_MAX);
      if (cwd)
        {

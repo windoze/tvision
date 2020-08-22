@@ -32,6 +32,7 @@
 #endif
 
 #define _GNU_SOURCE
+#define UNUSED(expr) do { (void)(expr); } while (0)
 
 /* We need this for `regex.h', and perhaps for the Emacs include files.  */
 #include <sys/types.h>
@@ -2362,7 +2363,7 @@ typedef struct
    value.  Assumes the variable `fail_stack'.  Probably should only
    be called from within `PUSH_FAILURE_POINT'.  */
 #define PUSH_FAILURE_ITEM(item)                                         \
-  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) item
+  fail_stack.stack[fail_stack.avail++] = (fail_stack_elt_t) (intptr_t) item
 
 /* The complement operation.  Assumes `fail_stack' is nonempty.  */
 #define POP_FAILURE_ITEM() fail_stack.stack[--fail_stack.avail]
@@ -2529,10 +2530,10 @@ typedef struct
   DEBUG_PRINT_COMPILED_PATTERN (bufp, pat, pend);                       \
                                                                         \
   /* Restore register info.  */                                         \
-  high_reg = (unsigned) POP_FAILURE_ITEM ();                            \
+  high_reg = (unsigned long long) POP_FAILURE_ITEM ();                            \
   DEBUG_PRINT2 ("  Popping high active reg: %d\n", high_reg);           \
                                                                         \
-  low_reg = (unsigned) POP_FAILURE_ITEM ();                             \
+  low_reg = (unsigned long long) POP_FAILURE_ITEM ();                             \
   DEBUG_PRINT2 ("  Popping  low active reg: %d\n", low_reg);            \
                                                                         \
   for (this_reg = high_reg; this_reg >= low_reg; this_reg--)            \
@@ -3799,7 +3800,7 @@ re_match_2 ( struct re_pattern_buffer *bufp, const char *string1,
                           regstart[r] = old_regstart[r];
 
                           /* xx why this test?  */
-                          if ((int) old_regend[r] >= (int) regstart[r])
+                          if ((__int64) old_regend[r] >= (__int64) regstart[r])
                             regend[r] = old_regend[r];
                         }     
                     }
@@ -4109,6 +4110,9 @@ re_match_2 ( struct re_pattern_buffer *bufp, const char *string1,
             unsigned dummy_low_reg, dummy_high_reg;
             unsigned char *pdummy;
             const char *sdummy;
+            
+            UNUSED(sdummy);
+            UNUSED(pdummy);
 
             DEBUG_PRINT1 ("EXECUTING pop_failure_jump.\n");
             POP_FAILURE_POINT (sdummy, pdummy,
